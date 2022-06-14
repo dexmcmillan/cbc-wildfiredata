@@ -10,19 +10,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          persist-credentials: false
+          persist-credentials: true
           fetch-depth: 0
 
-      - name: Set up Python 3.10.2
+      - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
-          python-version: "3.10.2"
+          python-version: "3.8"
 
       - name: Install dependencies
         run: pip install -r requirements.txt
 
       - name: Collect data
-        env: 
-            DW_AUTH_TOKEN: ${{ secrets.DW_AUTH_TOKEN }}
         run: python3 main.py
-        
+
+      - name: Push back to repo
+        uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'main'
