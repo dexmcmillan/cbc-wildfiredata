@@ -1,7 +1,7 @@
 name: Collect wildfire data
 on:
   schedule:
-    - cron: 0 */1 * * *
+    - cron: 40 */2 * * *
 
 jobs:
   get_data:
