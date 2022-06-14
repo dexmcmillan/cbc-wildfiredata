@@ -7,7 +7,6 @@ data = pd.read_csv(active_fires)
 timestamp = pd.to_datetime(requests.get(active_fires).headers["Last-Modified"])
 data["timestamp"] = timestamp
 
-
 data.columns = data.columns.str.strip()
 data["firename"] = data["firename"].str.strip()
     
