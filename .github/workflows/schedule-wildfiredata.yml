@@ -22,7 +22,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Collect data
-        run: python3 main.py
+        run: python3 scrape.py
 
       - name: Push back to repo
         uses: mikeal/publish-to-github-action@master
