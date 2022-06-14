@@ -1,6 +1,7 @@
 import pandas as pd
 import datawrappergraphics
 import glob
+import datetime as dt
 
 csvfiles = glob.glob("data/*.csv")
 
@@ -12,6 +13,10 @@ for file in csvfiles:
     dfs.append(df)
     
 data = pd.concat(dfs)
+
+data["timestamp"] = pd.to_datetime(data["timestamp"]).dt.tz_convert(None)
+
+print(data)
 
 data = data.loc[~data["agency"].isin(["ak", "conus", "pc"]), :]
 
