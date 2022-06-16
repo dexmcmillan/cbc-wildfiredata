@@ -1,4 +1,4 @@
-name: Collect wildfire data and update chart
+name: Update chart
 on:
   schedule:
     - cron: 40 */2 * * *
@@ -29,6 +29,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_NAME: 'main'
-
-      - name: Collect data
-        run: python3 analysis.py
