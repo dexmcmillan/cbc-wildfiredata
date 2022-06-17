@@ -2,6 +2,7 @@ name: Collect wildfire data and update chart
 on:
   schedule:
     - cron: 40 */2 * * *
+    - cron: 15 * * * *
 
 jobs:
   get_data:
