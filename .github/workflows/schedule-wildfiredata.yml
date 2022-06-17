@@ -31,5 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_NAME: 'main'
 
-      - name: Collect data
+      - name: Chart data
+        env: 
+            DW_AUTH_TOKEN: ${{ secrets.DW_AUTH_TOKEN }}
         run: python3 analysis.py
