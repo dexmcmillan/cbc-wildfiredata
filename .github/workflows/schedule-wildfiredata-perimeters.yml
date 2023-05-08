@@ -1,4 +1,4 @@
-name: Collect wildfire data and update chart
+name: Collect wildfire perimeter data from Federal database
 on:
   schedule:
     - cron: 40 */2 * * *
@@ -22,15 +22,10 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Collect data
-        run: python3 scrape.py
+        run: python3 scrape-perimeters.py
 
       - name: Push back to repo
         uses: mikeal/publish-to-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_NAME: 'main'
-
-      - name: Chart data
-        env: 
-            DW_AUTH_TOKEN: ${{ secrets.DW_AUTH_TOKEN }}
-        run: python3 chartprepscript.py
