@@ -30,7 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_NAME: 'main'
 
-      - name: Chart data
-        env: 
-            DW_AUTH_TOKEN: ${{ secrets.DW_AUTH_TOKEN }}
-        run: python3 chartprepscript.py
+      # - name: Chart data
+      #   env: 
+      #       DW_AUTH_TOKEN: ${{ secrets.DW_AUTH_TOKEN }}
+      #   run: python3 chartprepscript.py
