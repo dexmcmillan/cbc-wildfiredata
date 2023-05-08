@@ -1,4 +1,4 @@
-name: Collect wildfire perimeter data from Alberta
+name: Collect wildfire perimeter data from British Columbia
 on:
   schedule:
     - cron: 40 */2 * * *
@@ -22,7 +22,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Collect data
-        run: python3 scrape-ab.py
+        run: python3 scrape-bc.py
 
       - name: Push back to repo
         uses: mikeal/publish-to-github-action@master
