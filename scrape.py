@@ -10,4 +10,4 @@ data["timestamp"] = timestamp
 data.columns = data.columns.str.strip()
 data["firename"] = data["firename"].str.strip()
     
-data.to_csv(f'data/{str(timestamp).replace(":", "").replace("+0000", "")}.csv', mode='w')
+data.to_csv(f'data/canada/{str(timestamp).replace(":", "").replace("+0000", "")}.csv', mode='w')
