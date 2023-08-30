@@ -7,7 +7,6 @@ active_fires_bc = "https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/ser
 data = geopandas.read_file(active_fires_bc, engine="fiona")
 
 timestamp = pd.to_datetime(requests.get(active_fires_bc).headers["Last-Modified"])
-data["FIRE_NUMBER"] = timestamp
 
 data.columns = data.columns.str.strip()
 data["FIRE_NUMBER"] = data["FIRE_NUMBER"].astype(str).str.strip()
